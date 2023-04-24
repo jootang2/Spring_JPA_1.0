@@ -4,8 +4,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
-import java.time.LocalDate;
-import java.util.List;
 
 public class JpaMain {
     public static void main(String[] args) {
@@ -17,13 +15,6 @@ public class JpaMain {
         tx.begin();
 
         try{
-           Member member = new Member();
-           member.setId(1L);
-           member.setRole(RoleType.ADMIN);
-           member.setName("TEST");
-           member.setRegDate(LocalDate.now());
-           em.persist(member);
-
             tx.commit();
         } catch (Exception e) {
             tx.rollback();

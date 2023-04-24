@@ -1,23 +1,25 @@
 package com.hellojpa;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 
 @Entity
 public class Member {
-    @Id //pk
-    private Long id;
-
+    @Id
+    @GeneratedValue
+    @Column(name = "MEMBER_ID")
+    private String id;
+    @Column(name = "name", nullable = false)
     private String name;
-    @Enumerated(EnumType.STRING)
-    private RoleType role;
-    private LocalDate regDate;
 
-    public Long getId() {
+    private String city;
+    private String street;
+    private String zipcode;
+
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -29,19 +31,27 @@ public class Member {
         this.name = name;
     }
 
-    public RoleType getRole() {
-        return role;
+    public String getCity() {
+        return city;
     }
 
-    public void setRole(RoleType role) {
-        this.role = role;
+    public void setCity(String city) {
+        this.city = city;
     }
 
-    public LocalDate getRegDate() {
-        return regDate;
+    public String getStreet() {
+        return street;
     }
 
-    public void setRegDate(LocalDate regDate) {
-        this.regDate = regDate;
+    public void setStreet(String street) {
+        this.street = street;
+    }
+
+    public String getZipcode() {
+        return zipcode;
+    }
+
+    public void setZipcode(String zipcode) {
+        this.zipcode = zipcode;
     }
 }
