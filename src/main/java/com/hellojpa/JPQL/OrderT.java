@@ -3,17 +3,17 @@ package com.hellojpa.JPQL;
 import javax.persistence.*;
 
 @Entity
-public class jqplOrder {
+public class OrderT {
     @Id
     @GeneratedValue
     private Long id;
     private int orderAmount;
     @Embedded
-    private jpqlAddress address;
+    private Address address;
 
     @ManyToOne
     @JoinColumn(name = "PRODUCT_ID")
-    private jpqlProduct jpqlProduct;
+    private Product product;
 
     public Long getId() {
         return id;
@@ -31,19 +31,19 @@ public class jqplOrder {
         this.orderAmount = orderAmount;
     }
 
-    public jpqlAddress getAddress() {
+    public Address getAddress() {
         return address;
     }
 
-    public void setAddress(jpqlAddress address) {
+    public void setAddress(Address address) {
         this.address = address;
     }
 
-    public com.hellojpa.JPQL.jpqlProduct getJpqlProduct() {
-        return jpqlProduct;
+    public Product getProduct() {
+        return product;
     }
 
-    public void setJpqlProduct(com.hellojpa.JPQL.jpqlProduct jpqlProduct) {
-        this.jpqlProduct = jpqlProduct;
+    public void setProduct(Product product) {
+        this.product = product;
     }
 }

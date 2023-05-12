@@ -3,7 +3,7 @@ package com.hellojpa.JPQL;
 import javax.persistence.Embeddable;
 
 @Embeddable
-public class jpqlAddress {
+public class Address {
     private String city;
     private String street;
     private String zipcode;

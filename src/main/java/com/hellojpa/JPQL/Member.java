@@ -3,7 +3,7 @@ package com.hellojpa.JPQL;
 import javax.persistence.*;
 
 @Entity
-public class jpqlMember {
+public class Member {
     @Id
     @GeneratedValue
     private Long id;
@@ -11,7 +11,7 @@ public class jpqlMember {
     private int age;
     @ManyToOne
     @JoinColumn(name = "TEAM_ID")
-    private jpqlTeam jpqlTeam;
+    private Team team;
 
     public Long getId() {
         return id;
@@ -35,5 +35,13 @@ public class jpqlMember {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public Team getTeam() {
+        return team;
+    }
+
+    public void setTeam(Team team) {
+        this.team = team;
     }
 }

@@ -1,17 +1,22 @@
 package com.hellojpa.JPQL;
 
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
-public class jpqlProduct {
+public class Team {
     @Id
     @GeneratedValue
     private Long id;
     private String name;
-    private int price;
-    private int stockAmount;
+
+    @OneToMany(mappedBy = "team")
+    private List<Member> members = new ArrayList<>();
 
     public Long getId() {
         return id;
@@ -29,19 +34,11 @@ public class jpqlProduct {
         this.name = name;
     }
 
-    public int getPrice() {
-        return price;
+    public List<Member> getMembers() {
+        return members;
     }
 
-    public void setPrice(int price) {
-        this.price = price;
-    }
-
-    public int getStockAmount() {
-        return stockAmount;
-    }
-
-    public void setStockAmount(int stockAmount) {
-        this.stockAmount = stockAmount;
+    public void setMembers(List<Member> members) {
+        this.members = members;
     }
 }
